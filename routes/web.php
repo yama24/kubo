@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//FRONT PAGE
+
 Route::get('/', function () {
     return view('front/home');
 });
@@ -33,4 +35,12 @@ Route::get('/author', function () {
 });
 Route::get('/search', function () {
     return view('front/search');
+});
+
+
+
+//BACK PAGE
+
+Route::get('/dashboard', function () {
+    return view('back/dashboard');
 });
