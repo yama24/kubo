@@ -44,3 +44,6 @@ Route::get('/search', function () {
 Route::get('/dashboard', function () {
     return view('back/dashboard');
 });
+Route::get('/blog/posts', function () {
+    return view('back/posts');
+});
