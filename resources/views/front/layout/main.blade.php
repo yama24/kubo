@@ -2,7 +2,7 @@
 <html lang="en-US">
 
 <head>
-    <title>Kubo - Blogger</title>
+    <title>{{ $title }} - Kubo</title>
     <link rel="shortcut icon" href="/front/images/square-logo.svg" type="image/x-icon">
     <!-- META TAGS -->
     <meta charset="UTF-8">
