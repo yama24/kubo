@@ -47,3 +47,6 @@ Route::get('/dashboard', function () {
 Route::get('/blog/posts', function () {
     return view('back/posts');
 });
+Route::get('/blog/categories', function () {
+    return view('back/categories');
+});

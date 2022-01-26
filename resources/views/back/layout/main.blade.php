@@ -24,12 +24,7 @@
 <body class="sidebar-mini layout-footer-fixed sidebar-mini-md sidebar-mini-xs layout-navbar-fixed layout-fixed">
     <div class="wrapper">
 
-        <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__wobble" src="/back/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
-                width="60">
-        </div>
-
+        @yield('preloaderContainer')
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-dark text-sm dropdown-legacy">
             <!-- Left navbar links -->
@@ -242,14 +237,8 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="/blog/categories" class="nav-link">
-                                        <i class="fas fa-list nav-icon"></i>
-                                        <p>Categories</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/blog/tags" class="nav-link">
                                         <i class="fas fa-tags nav-icon"></i>
-                                        <p>Tags</p>
+                                        <p>Categories</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

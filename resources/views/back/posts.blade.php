@@ -33,7 +33,7 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>No.</th>
+                                            <th style="width: 10px">#</th>
                                             <th>Title</th>
                                             <th>Body</th>
                                             <th>Hero Image</th>

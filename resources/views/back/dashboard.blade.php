@@ -1,4 +1,10 @@
 @extends('back.layout.main')
+@section('preloaderContainer')
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__wobble" src="/back/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    </div>
+@endsection
 @section('dashboardContainer')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
