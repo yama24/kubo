@@ -138,7 +138,7 @@
             </div>
             <!-- VIEW ALL BUTTON -->
             <div class="eskimo-view-more mb-5">
-                <a class="btn btn-default" href="/blog">VIEW ALL</a>
+                <a class="btn btn-default" href="/blogs">VIEW ALL</a>
             </div>
         </div>
         <!-- SIDEBAR -->

@@ -47,7 +47,7 @@
                                 <ul class="eskimo-menu-ul">
                                     <li><a href="/">Home</a></li>
                                     <li><a href="/about">About Me</a></li>
-                                    <li><a href="/blog">Blog</a></li>
+                                    <li><a href="/blogs">Blog</a></li>
                                     {{-- <li><a href="/gallery">Galleries</a></li> --}}
                                 </ul>
                             </nav>
