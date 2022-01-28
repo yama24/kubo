@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory(5)->create();
-        \App\Models\Post::factory(10)->create();
+        \App\Models\Post::factory(100)->create();
 
         Category::create([
             'name' => 'Programming',

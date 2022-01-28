@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('front/home', ['title' => 'Home']);
 });
 Route::get('/about', function () {
-    return view('front/about');
+    return view('front/about',['title' => 'About']);
 });
 Route::get('/blogs/{num?}', [BlogController::class, 'index']);
 Route::get('/blog/slug', function () {
