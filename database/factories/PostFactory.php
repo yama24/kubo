@@ -18,8 +18,8 @@ class PostFactory extends Factory
             'user_id' => mt_rand(1, 5),
             'title' => $this->faker->sentence(mt_rand(2, 8)),
             'slug' => $this->faker->slug(),
-            'body' => $this->faker->paragraph(5, 10),
-            'image' => 'https://source.unsplash.com/random',
+            'body' => $this->faker->paragraph(500, 1000),
+            'image' => '/img/test.png',
             'published_at' => $this->faker->dateTimeBetween('2021-01-01', '2021-12-31'),
         ];
     }

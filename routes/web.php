@@ -22,10 +22,8 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('front/about',['title' => 'About']);
 });
-Route::get('/blogs/{num?}', [BlogController::class, 'index']);
-Route::get('/blog/slug', function () {
-    return view('front/post');
-});
+Route::get('/blogs/', [BlogController::class, 'index']);
+Route::get('/blog/{post:slug}', [BlogController::class, 'show']);
 Route::get('/category', function () {
     return view('front/category');
 });
