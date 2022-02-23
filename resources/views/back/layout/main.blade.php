@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard 2</title>
+    <title>{{ $title }} | Kubo</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -212,15 +212,15 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="/dashboard" class="nav-link active">
+                            <a href="/dashboard" class="nav-link {{ $title == 'Dashboard' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
+                        <li class="nav-item {{ $title == 'Posts' ? 'menu-open' : '' }}">
+                            <a href="#" class="nav-link {{ $title == 'Posts' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-newspaper"></i>
                                 <p>
                                     Blog
@@ -230,19 +230,19 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/blog/posts" class="nav-link">
+                                    <a href="/dashboard/posts" class="nav-link {{ $title == 'Posts' ? 'active' : '' }}">
                                         <i class="fas fa-file-alt nav-icon"></i>
                                         <p>Posts</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/blog/categories" class="nav-link">
+                                    <a href="/dashboard/categories" class="nav-link">
                                         <i class="fas fa-tags nav-icon"></i>
                                         <p>Categories</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/blog/comments" class="nav-link">
+                                    <a href="/dashboard/comments" class="nav-link">
                                         <i class="fas fa-comments nav-icon"></i>
                                         <p>Comments</p>
                                     </a>

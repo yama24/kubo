@@ -177,7 +177,7 @@ p {
 }
 
 a {
-    color: #51cbce;
+    color: #375543;
     -webkit-transition: color 0.2s linear;
     -moz-transition: color 0.2s linear;
     transition: color 0.2s linear;
@@ -185,7 +185,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #2ba9cd;
+    color: #5e7668;
     text-decoration: none;
 }
 
@@ -259,7 +259,7 @@ table:not([class]) td {
 
 blockquote {
     font-style: italic;
-    border-left: 4px solid #51cbce;
+    border-left: 4px solid #375543;
     padding-left: 1.5rem;
     margin-left: -1.5rem;
     font-size: 120%;
@@ -308,7 +308,7 @@ blockquote {
     content: "";
     height: 3px;
     width: 100%;
-    background: #51cbce;
+    background: #375543;
     left: 0;
     bottom: -3px;
     position: absolute;
@@ -449,7 +449,7 @@ progress {
     appearance: none;
     border: none;
     background-color: transparent;
-    color: #51cbce;
+    color: #375543;
     z-index: 9999;
 }
 
@@ -458,11 +458,11 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-    background-color: #51cbce;
+    background-color: #375543;
 }
 
 progress::-moz-progress-bar {
-    background-color: #51cbce;
+    background-color: #375543;
 }
 
 .eskimo-progress-container {
@@ -476,7 +476,7 @@ progress::-moz-progress-bar {
 }
 
 .eskimo-progress-bar {
-    background-color: #51cbce;
+    background-color: #375543;
     width: 50%;
     display: block;
     height: inherit;
@@ -584,7 +584,7 @@ a.text-light:hover {
 .text-primary,
 a.text-primary,
 a.text-primary:hover {
-    color: #51cbce !important;
+    color: #375543 !important;
 }
 
 .text-info,
@@ -799,8 +799,8 @@ input[type="button"]:not(.btn):hover,
 }
 
 .btn-primary {
-    background-color: #51cbce;
-    border-color: #51cbce;
+    background-color: #375543;
+    border-color: #375543;
     color: #FFFFFF;
     opacity: 1;
 }
@@ -820,7 +820,7 @@ input[type="button"]:not(.btn):hover,
 }
 
 .btn-primary.btn-link {
-    color: #51cbce;
+    color: #375543;
 }
 
 .btn-primary.btn-link:hover,
@@ -890,9 +890,9 @@ input[type="button"]:not(.btn):hover,
 .btn-info:active,
 .btn-info.active,
 .show > .btn-info.dropdown-toggle {
-    background-color: #2ba9cd !important;
+    background-color: #5e7668 !important;
     color: #FFFFFF;
-    border-color: #2ba9cd !important;
+    border-color: #5e7668 !important;
 }
 
 .btn-info .caret {
@@ -909,7 +909,7 @@ input[type="button"]:not(.btn):hover,
 .btn-info.btn-link.active,
 .open > .btn-info.btn-link.dropdown-toggle {
     background-color: transparent;
-    color: #2ba9cd;
+    color: #5e7668;
 }
 
 .btn-info.btn-link .caret {
@@ -1060,8 +1060,8 @@ fieldset[disabled] .btn-outline-default.active {
 }
 
 .btn-outline-primary {
-    border-color: #51cbce !important;
-    color: #51cbce;
+    border-color: #375543 !important;
+    color: #375543;
     opacity: 1;
 }
 
@@ -1070,9 +1070,9 @@ fieldset[disabled] .btn-outline-default.active {
 .btn-outline-primary:active,
 .btn-outline-primary.active,
 .open > .btn-outline-primary.dropdown-toggle {
-    background-color: #51cbce !important;
+    background-color: #375543 !important;
     color: #fff;
-    border-color: #51cbce !important;
+    border-color: #375543 !important;
 }
 
 .btn-outline-primary:hover .caret,
@@ -1112,7 +1112,7 @@ fieldset[disabled] .btn-outline-primary.focus,
 fieldset[disabled] .btn-outline-primary:active,
 fieldset[disabled] .btn-outline-primary.active {
     background-color: transparent;
-    border-color: #51cbce !important;
+    border-color: #375543 !important;
 }
 
 .btn-outline-success {
@@ -1777,7 +1777,7 @@ textarea.form-control {
 
 .progress-bar,
 .progress-bar-primary {
-    background-color: #51cbce;
+    background-color: #375543;
 }
 
 .progress-bar-info {
@@ -1880,7 +1880,7 @@ textarea.form-control {
 }
 
 .badge-primary {
-    background-color: #51cbce;
+    background-color: #375543;
 }
 
 .badge-info {
@@ -2095,7 +2095,7 @@ video {
 }
 
 .eskimo-top-icons li a span {
-    background-color: #51cbce;
+    background-color: #375543;
     line-height: 20px;
     height: 18px;
     min-width: 18px;
@@ -2225,7 +2225,7 @@ video {
 .eskimo-menu-ul li a:hover,
 .eskimo-menu-ul li a.eskimo-menu-up {
     outline: none;
-    color: #51cbce;
+    color: #375543;
 }
 
 .eskimo-menu-ul > li > ul {
@@ -2287,23 +2287,23 @@ video {
 }
 
 .eskimo-menu-ul > li > a:hover:after {
-    background: #51cbce;
+    background: #375543;
     transform: rotate(90deg);
 }
 
 .eskimo-menu-ul > li > a:hover:before {
-    background: #51cbce;
+    background: #375543;
     transform: rotate(180deg);
 }
 
 .eskimo-menu-ul > li > a.eskimo-menu-up:before {
     transform: rotate(-45deg);
-    background: #51cbce;
+    background: #375543;
 }
 
 .eskimo-menu-ul > li > a.eskimo-menu-up:after {
     transform: rotate(45deg);
-    background: #51cbce;
+    background: #375543;
 }
 
 .eskimo-menu-ul > li > a:not([class]):before,
@@ -2332,7 +2332,7 @@ video {
 }
 
 .eskimo-menu-ul > li > ul > li a:hover:before {
-    background: #51cbce;
+    background: #375543;
     transform: scale(1.2);
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
@@ -2411,7 +2411,7 @@ video {
     margin: 0;
     padding: 0 0 0 40px;
     display: inline-block;
-    background: #51cbce;
+    background: #375543;
     vertical-align: bottom;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -2511,7 +2511,7 @@ video {
     content: "";
     height: 4px;
     width: 100%;
-    background: #51cbce;
+    background: #375543;
     left: 0;
     bottom: -4px;
     position: absolute;
@@ -2560,7 +2560,7 @@ video {
 }
 
 .eskimo-page-title-meta a:hover {
-    color: #51cbce;
+    color: #375543;
 }
 
 .eskimo-author-meta:after,
@@ -2654,7 +2654,7 @@ video {
 }
 
 .eskimo-post-nav-link a:hover {
-    color: #51cbce;
+    color: #375543;
 }
 
 .eskimo-post-nav-table > .eskimo-post-nav {
@@ -2790,7 +2790,7 @@ video {
 }
 
 .card .card-footer a:hover {
-    color: #51cbce;
+    color: #375543;
 }
 
 .card .card-footer div {
@@ -2802,7 +2802,7 @@ video {
     text-transform: uppercase;
     font-weight: 700;
     line-height: 1.5;
-    color: #51cbce;
+    color: #375543;
 }
 
 .card.card-horizontal {
@@ -2896,7 +2896,7 @@ video {
 }
 
 .card-horizontal-meta a:hover {
-    color: #51cbce;
+    color: #375543;
 }
 
 .card-small .card-title {
@@ -3125,7 +3125,7 @@ p.form-submit {
 }
 
 .eskimo-widget a:not(.btn):hover {
-    color: #51cbce;
+    color: #375543;
 }
 
 .eskimo-widget:last-child {
@@ -3143,7 +3143,7 @@ p.form-submit {
 
 .eskimo-recent-entries ul li a:hover,
 .eskimo-categories ul li a:hover {
-    color: #51cbce;
+    color: #375543;
 }
 
 .eskimo-recent-entries ul,
@@ -3266,7 +3266,7 @@ p.form-submit {
 
 .eskimo-tag-cloud a:hover {
     text-decoration: none;
-    color: #51cbce;
+    color: #375543;
 }
 
 .eskimo-tag-cloud a span {
@@ -3459,7 +3459,7 @@ p.form-submit {
 }
 
 .eskimo-post-list a:hover {
-    color: #51cbce;
+    color: #375543;
 }
 
 .eskimo-post-list-info .fa,
