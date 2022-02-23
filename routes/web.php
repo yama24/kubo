@@ -41,6 +41,7 @@ Route::get('/search', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/dashboard/posts', [DashboardController::class, 'posts']);
+Route::get('/dashboard/posts/json', [DashboardController::class, 'postData'])->name('posts.json');
 // Route::get('/blog/posts', function () {
 //     return view('back/posts');
 // });

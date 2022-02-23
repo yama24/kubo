@@ -45,7 +45,7 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    {{-- <tbody>
                                         <tr>
                                             <td>1</td>
                                             <td>Lorem ipsum dolor sit amet.</td>
@@ -64,11 +64,13 @@
                                             <td>2022 Jan 01 08:15</td>
                                             <td>2022 Jan 03 08:15</td>
                                             <td>
-                                                <button type="button" class="btn btn-warning btn-xs"><i class="fas fa-edit"></i> Edit</button>
-                                                <button type="button" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i> Delete</button>
+                                                <button type="button" class="btn btn-warning btn-xs"><i
+                                                        class="fas fa-edit"></i> Edit</button>
+                                                <button type="button" class="btn btn-danger btn-xs"><i
+                                                        class="fas fa-trash"></i> Delete</button>
                                             </td>
                                         </tr>
-                                    </tbody>
+                                    </tbody> --}}
                                     {{-- <tfoot>
                                         <tr>
                                             <th>No.</th>
@@ -103,12 +105,58 @@
     <script>
         $(function() {
             $("#example1").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "autoWidth": false,
-                // "info": true,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                processing: true,
+                serverSide: true,
+                ajax: '{!! route('posts.json') !!}', // memanggil route yang menampilkan data json
+                columns: [{ // mengambil & menampilkan kolom sesuai tabel database
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
+                    },
+                    {
+                        data: 'title',
+                        name: 'title'
+                    },
+                    {
+                        data: 'body',
+                        name: 'body'
+                    },
+                    {
+                        data: 'image',
+                        name: 'image'
+                    },
+                    {
+                        data: 'category_link',
+                        name: 'category_link'
+                    },
+                    {
+                        data: 'tag',
+                        name: 'tag'
+                    },
+                    {
+                        data: 'author_link',
+                        name: 'author_link'
+                    },
+                    {
+                        data: 'created_at',
+                        name: 'created_at'
+                    },
+                    {
+                        data: 'updated_at',
+                        name: 'updated_at'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action'
+                    }
+                ]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            // $("#example1").DataTable({
+            //     "responsive": true,
+            //     "lengthChange": false,
+            //     "autoWidth": false,
+            //     // "info": true,
+            //     "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            // }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             // $('#example2').DataTable({
             //     "paging": true,
             //     "lengthChange": false,
