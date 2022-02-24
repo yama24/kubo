@@ -26,11 +26,23 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">DataTable with default features</h3>
+                                <h3 class="card-title">Fixed Header Table</h3>
+                                <div class="card-tools">
+                                    <form action="">
+                                        <div class="input-group input-group-sm">
+                                            <input type="text" name="search" class="form-control float-right"
+                                                placeholder="Search" value="{{ $search }}">
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-default">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
+                            <div class="card-body table-responsive p-0" style="height: 55vh;">
+                                <table class="table table-head-fixed">
                                     <thead>
                                         <tr>
                                             <th style="width: 10px">#</th>
@@ -40,52 +52,81 @@
                                             <th>Category</th>
                                             <th>Tags</th>
                                             <th>Author</th>
-                                            <th>Created @</th>
-                                            <th>Updated @</th>
+                                            <th>Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Lorem ipsum dolor sit amet.</td>
-                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, rem dolorem
-                                                quas sunt nostrum ipsam inventore sint vitae repudiandae! Architecto...</td>
-                                            <td><img src="/back/dist/img/photo4.jpg" class="img-thumbnail"
-                                                    alt="Hero Image"></td>
-                                            <td><a href="#"><span class="badge badge-warning">Category</span></a></td>
-                                            <td>
-                                                <a href="#"><span class="badge badge-pill badge-success">Tags1</span></a>
-                                                <a href="#"><span class="badge badge-pill badge-primary">Tags2</span></a>
-                                                <a href="#"><span class="badge badge-pill badge-secondary">Tags3</span></a>
-                                                <a href="#"><span class="badge badge-pill badge-danger">Tags4</span></a>
-                                            </td>
-                                            <td>Yayan Maulana</td>
-                                            <td>2022 Jan 01 08:15</td>
-                                            <td>2022 Jan 03 08:15</td>
-                                            <td>
-                                                <button type="button" class="btn btn-warning btn-xs"><i class="fas fa-edit"></i> Edit</button>
-                                                <button type="button" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i> Delete</button>
-                                            </td>
-                                        </tr>
+                                        @foreach ($posts as $index => $item)
+                                            <tr>
+                                                <td>{{ $index + 1 }}</td>
+                                                <td>{{ $item->title }}</td>
+                                                <td>{{ Str::limit($item->body, 50, '...') }}</td>
+                                                <td><img src="{{ $item->image }}" class="img-thumbnail" alt="Hero Image">
+                                                </td>
+                                                <td><a href="#"><span
+                                                            class="badge badge-warning">{{ $item->category->name }}</span></a>
+                                                </td>
+                                                <td>
+                                                    <a href="#"><span
+                                                            class="badge badge-pill badge-success">Tags1</span></a>
+                                                    <a href="#"><span
+                                                            class="badge badge-pill badge-primary">Tags2</span></a>
+                                                    <a href="#"><span
+                                                            class="badge badge-pill badge-secondary">Tags3</span></a>
+                                                    <a href="#"><span class="badge badge-pill badge-danger">Tags4</span></a>
+                                                </td>
+                                                <td>{{ $item->author->name }}</td>
+                                                <td>
+                                                    <small>
+                                                        Create : {{ $item->created_at->format('d/M/y') }}
+                                                        Update : {{ $item->updated_at->format('d/M/y') }}
+                                                    </small>
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                                        <button type="button" class="btn btn-warning btn-sm"><i
+                                                                class="fas fa-edit"></i></button>
+                                                        <button type="button" class="btn btn-danger btn-sm"><i
+                                                                class="fas fa-trash"></i></button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
-                                    {{-- <tfoot>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>Title</th>
-                                            <th>Body</th>
-                                            <th>Hero Image</th>
-                                            <th>Category</th>
-                                            <th>Tags</th>
-                                            <th>Author</th>
-                                            <th>Created @</th>
-                                            <th>Updated @</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot> --}}
                                 </table>
                             </div>
-                            <!-- /.card-body -->
+                            <div class="card-footer clearfix">
+                                <ul class="pagination pagination-sm m-0 float-right">
+                                    <?php
+                                    $startPage = $posts->currentPage() - 2 < 1 ? 1 : $posts->currentPage() - 2;
+                                    $endPage = $posts->currentPage() + 2 > $posts->lastPage() ? $posts->lastPage() : $posts->currentPage() + 2;
+                                    if ($startPage == 1 && $endPage < 5) {
+                                        if ($posts->lastPage() > 5) {
+                                            $endPage = 5;
+                                        } else {
+                                            $endPage = $posts->lastPage();
+                                        }
+                                    }
+                                    if ($endPage - $startPage + 1 < 5) {
+                                        if ($posts->lastPage() > 5) {
+                                            $startPage = $endPage - 4;
+                                        } else {
+                                            $startPage = $endPage - $posts->lastPage() + 1;
+                                        }
+                                    }
+                                    ?>
+                                    {!! $startPage == 1 ? '' : '<li class="page-item"><a class="page-link" href="' . $posts->url(1) . '"><i class="fa fa-angle-double-left"></i></a></li>' !!}
+                                    {!! $posts->onFirstPage() ? '' : '<li class="page-item"><a class="page-link" href="' . $posts->previousPageUrl() . '"><i class="fa fa-angle-left"></i></a></li>' !!}
+                                    @foreach ($posts->getUrlRange($startPage, $endPage) as $key => $val)
+                                        <li class="page-item {{ $posts->currentPage() == $key ? 'active' : '' }}"><a
+                                                class="page-link" href="{{ $val.$link }}">{{ $key }}</a>
+                                        </li>
+                                    @endforeach
+                                    {!! $posts->currentPage() == $posts->lastPage() ? '' : '<li class="page-item"><a class="page-link" href="' . $posts->nextPageUrl() . '"><i class="fa fa-angle-right"></i></a></li>' !!}
+                                    {!! $endPage == $posts->lastPage() ? '' : '<li class="page-item"><a class="page-link" href="' . $posts->url($posts->lastPage()) . '"><i class="fa fa-angle-double-right"></i></a></li>' !!}
+                                </ul>
+                            </div>
                         </div>
                         <!-- /.card -->
                     </div>
@@ -102,22 +143,15 @@
 @section('footerContainer')
     <script>
         $(function() {
-            $("#example1").DataTable({
-                "responsive": true,
+            $('#postsTable').DataTable({
+                "paging": false,
                 "lengthChange": false,
+                "searching": false,
+                "ordering": false,
+                "info": false,
                 "autoWidth": false,
-                // "info": true,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            // $('#example2').DataTable({
-            //     "paging": true,
-            //     "lengthChange": false,
-            //     "searching": false,
-            //     "ordering": true,
-            //     "info": true,
-            //     "autoWidth": false,
-            //     "responsive": true,
-            // });
+                "responsive": true,
+            });
         });
     </script>
 @endsection

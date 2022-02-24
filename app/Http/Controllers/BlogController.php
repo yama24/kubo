@@ -11,7 +11,7 @@ class BlogController extends Controller
     {
         return view('front/blog', [
             'title' => 'All Posts',
-            'posts' => Post::orderBy('published_at', 'desc')->orderBy('id', 'desc')->paginate(5),
+            'posts' => Post::orderBy('published_at', 'desc')->orderBy('id', 'desc')->paginate(10),
         ]);
     }
     public function show($slug)
