@@ -28,20 +28,41 @@
                             <div class="card-header">
                                 <h3 class="card-title">Fixed Header Table</h3>
                                 <div class="card-tools">
-                                    <form action="">
-                                        <div class="input-group input-group-sm">
-                                            <input type="text" name="search" class="form-control float-right"
-                                                placeholder="Search" value="{{ $search }}">
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-default">
-                                                    <i class="fas fa-search"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
                                 </div>
                             </div>
                             <div class="card-body table-responsive p-0" style="height: 55vh;">
+                                <div class="row mt-3 px-3 mx-0">
+                                    <div class="col-6">
+                                        <form action="">
+                                            <div class="form-group">
+                                                <label class="d-inline-block"><small>Show</small></label>
+                                                <select class="form-control form-control-sm d-inline-block" name="length"
+                                                    style="width: auto;" onchange="this.form.submit()">
+                                                    <option value="10" {{ $length == 10 ? 'selected' : '' }}>10</option>
+                                                    <option value="25" {{ $length == 25 ? 'selected' : '' }}>25</option>
+                                                    <option value="50" {{ $length == 50 ? 'selected' : '' }}>50</option>
+                                                    <option value="100" {{ $length == 100 ? 'selected' : '' }}>100</option>
+                                                </select>
+                                                <label class="d-inline-block"><small>entries</small></label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="float-right">
+                                            <form action="">
+                                                <div class="input-group input-group-sm">
+                                                    <input type="text" name="search" class="form-control float-right"
+                                                        placeholder="Search" value="{{ $search }}">
+                                                    <div class="input-group-append">
+                                                        <button type="submit" class="btn btn-default">
+                                                            <i class="fas fa-search"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                                 <table class="table table-head-fixed">
                                     <thead>
                                         <tr>
@@ -97,6 +118,8 @@
                                 </table>
                             </div>
                             <div class="card-footer clearfix">
+                                <span class="float-left">Showing {{ $posts->firstItem() }} to
+                                    {{ $posts->lastItem() }} of {{ $posts->total() }} entries</span>
                                 <ul class="pagination pagination-sm m-0 float-right">
                                     <?php
                                     $startPage = $posts->currentPage() - 2 < 1 ? 1 : $posts->currentPage() - 2;
@@ -120,7 +143,7 @@
                                     {!! $posts->onFirstPage() ? '' : '<li class="page-item"><a class="page-link" href="' . $posts->previousPageUrl() . '"><i class="fa fa-angle-left"></i></a></li>' !!}
                                     @foreach ($posts->getUrlRange($startPage, $endPage) as $key => $val)
                                         <li class="page-item {{ $posts->currentPage() == $key ? 'active' : '' }}"><a
-                                                class="page-link" href="{{ $val.$link }}">{{ $key }}</a>
+                                                class="page-link" href="{{ $val . $link }}">{{ $key }}</a>
                                         </li>
                                     @endforeach
                                     {!! $posts->currentPage() == $posts->lastPage() ? '' : '<li class="page-item"><a class="page-link" href="' . $posts->nextPageUrl() . '"><i class="fa fa-angle-right"></i></a></li>' !!}

@@ -18,6 +18,7 @@ class DashboardController extends Controller
     public function posts(Request $request)
     {
         $url = $request->input();
+        $length = ($request->input('length')) ? $request->input('length') : 10;
         $link = '';
         foreach ($url as $key => $value) {
             if ($key != 'page') {
@@ -29,12 +30,13 @@ class DashboardController extends Controller
             ['title', 'like', '%' . $search . '%'],
             ['body', 'like', '%' . $search . '%'],
         ];
-        $posts = Post::with(['author', 'category'])->orderBy('published_at', 'desc')->orderBy('id', 'desc')->orWhere($where)->paginate(10);
+        $posts = Post::with(['author', 'category'])->orderBy('published_at', 'desc')->orderBy('id', 'desc')->orWhere($where)->paginate($length);
         $data = [
             'title' => 'Posts',
             'posts' => $posts,
             'link' => $link,
             'search' => $search,
+            'length' => $length,
         ];
         return view('back/posts', $data);
     }
