@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use Illuminate\Support\Facades\Http;
+use App\Models\Category;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
@@ -26,11 +27,14 @@ class DashboardController extends Controller
             }
         }
         $search = $request->input('search');
-        $where = [
-            ['title', 'like', '%' . $search . '%'],
-            ['body', 'like', '%' . $search . '%'],
-        ];
-        $posts = Post::with(['author', 'category'])->orderBy('published_at', 'desc')->orderBy('id', 'desc')->orWhere($where)->paginate($length);
+        $categoriId = Category::where('name', 'LIKE', '%' . $search . '%')->first();
+        $authorId = User::where('name', 'LIKE', '%' . $search . '%')->first();
+        $posts = Post::with(['author', 'category'])->orderBy('published_at', 'desc')->orderBy('id', 'desc')
+            ->Where('title', 'LIKE', '%' . $search . '%')
+            ->orWhere('body', 'LIKE', '%' . $search . '%')
+            ->orWhere('category_id', 'LIKE', ($categoriId) ? $categoriId->id : '%%')
+            ->orWhere('user_id', 'LIKE', ($authorId) ? $authorId->id : '%%')
+            ->paginate($length);
         $data = [
             'title' => 'Posts',
             'posts' => $posts,
